@@ -1,0 +1,261 @@
+* {
+    font-family: "Montserrat", sans-serif;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #acb0b4;
+}
+
+.container {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 0.33fr 1fr;
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+}
+
+.container .card-one {
+    padding: 40px 20px;
+    padding-left: 35px;
+    background-color: #d1d1d1;
+    width: 100%;
+    color: #313131;
+    background-image: linear-gradient(45deg, #e3dede 25%, transparent 25%, transparent 75%, #e3dede 75%, #e3dede), linear-gradient(45deg, #e3dede 25%, transparent 25%, transparent 75%, #e3dede 75%, #e3dede);
+    background-size: 70px 70px;
+    background-position: 0 0, 35px 35px;
+}
+
+.container .card-one .profile {
+    display: inline-flex;
+    margin-bottom: 5px;
+    margin-left: -15px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 4px solid #2c2b29;
+    background-image: url("foto formal.jpg");
+    background-position: center top;
+    background-size: 100%;
+}
+
+.container .card-one .contact-box {
+    margin-top: 2px;
+}
+
+.container .card-one .contact-box > * {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+    margin-top: 25px;
+    align-items: center;
+}
+
+.container .card-one .contact-box > * .text {
+    display: inline-flex;
+    word-break: break-all;
+}
+
+.container .card-one .contact-box div:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.personal-box {
+    margin-top: 35px;
+}
+
+.personal-box h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.personal-box > div {
+    margin-bottom: 15px;
+}
+
+.skill-bar {
+    height: 15px;
+    background: linear-gradient(to right, #1606f2, #173c62); /* Efek gradient */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Bayangan */
+    border-radius: 8px; /* Radius sudut */
+}
+
+.skill-bar::before {
+    content: attr(data-label); /* Menampilkan label persentase */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    color: #fff;
+}
+
+.skill-bar::after {
+    content: '%'; /* Menampilkan simbol persen */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    color: #fff;
+}
+
+.personal-box p {
+    margin-bottom: 5px;
+    color: #777;
+    font-weight: bold;
+}
+
+.container .card-one .personal-box {
+    margin-top: 35px;
+}
+
+.container .card-one .personal-box .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #000000;
+    border-radius: 50%;
+    margin-left: 4px;
+}
+
+.container .card-one .personal-box .dot.active {
+    background-color:#121cac
+}
+
+.container .card-one .hobbies-box {
+    margin-top: 35px;
+}
+
+.container .card-one .hobbies-box .logo {
+    margin: 1px 0px;
+    display: grid;
+    grid-template: 1fr 1fr/1fr 1fr;
+    font-size: 1cm;
+    grid-row-gap: 10px;
+}
+
+.container .card-one .hobbies-box .logo i {
+    font-size: 1cm; /* Sesuaikan ukuran sesuai kebutuhan */
+    margin-right: 5px;
+}
+
+.container .card-one .hobbies-box .logo i:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+}
+
+.container .card-two {
+    background-color: #173c62;
+    padding: 40px 20px;
+    padding-right: 75px;
+    color: #d5cece;
+}
+
+.container .card-two .head-title {
+    font-size: 2.1em;
+    color: #e9d711;
+    font-weight: 400;
+}
+
+.container .card-two .box {
+    display: inline-block;
+    padding: 2px 70px 2px 20px;
+    margin-left: -20px;
+    margin-top: 35px;
+    background-color: #e9d711;
+    color: #2c2b29;
+}
+
+.container .card-two .group-1 .desc {
+    margin-top: 20px;
+    line-height: 1.5;
+}
+
+.container .card-two .group-1 .desc p:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.container .card-two .group-2 .desc ul {
+    position: relative;
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+.container .card-two .group-2 .desc ul::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -15px;
+    height: calc(100%); /* Mengatur tinggi garis */
+    width: 2px; /* Mengatur lebar garis */
+    background-color: #e9ed0c; /* Warna garis */
+}
+
+.container .card-two .group-2 .desc ul li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 20px;
+}
+
+.container .card-two .group-2 .desc ul li::before {
+    content: "";
+    position: absolute;
+    top: 0; /* Mengatur posisi vertikal titik */
+    left: -19px; /* Mengatur posisi horizontal titik */
+    width: 10px;
+    height: 10px;
+    background-color: #e9ed0c; /* Warna titik */
+    border-radius: 50%; /* Membuat titik menjadi bulat */
+    transform: translateY(50%); /* Pusatkan titik di tengah vertikal */
+}
+
+.container .card-two .group-3 .desc ul {
+    position: relative;
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+.container .card-two .group-3 .desc ul::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -15px;
+    height: calc(100%); /* Mengatur tinggi garis */
+    width: 2px; /* Mengatur lebar garis */
+    background-color: #e9ed0c; /* Warna garis */
+}
+
+.container .card-two .group-3 .desc ul li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 20px;
+}
+
+.container .card-two .group-3 .desc ul li::before {
+    content: "";
+    position: absolute;
+    top: 0; /* Mengatur posisi vertikal titik */
+    left: -19px; /* Mengatur posisi horizontal titik */
+    width: 10px;
+    height: 10px;
+    background-color: #e9ed0c; /* Warna titik */
+    border-radius: 50%; /* Membuat titik menjadi bulat */
+    transform: translateY(50%); /* Pusatkan titik di tengah vertikal */
+}
+
+.container .card-two .head-title h1:hover,
+.container .card-two h2:hover {
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.container .card-two .group-2 .desc ul li:hover,
+.container .card-two .group-3 .desc ul li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
