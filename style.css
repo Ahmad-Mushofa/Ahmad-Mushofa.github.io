@@ -1,47 +1,56 @@
-class DetailPage extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'detail_page.dart';
+import 'tambah_data_page.dart';
+
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  List<Map<String, String>> dataList = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Detail'),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
-        ),
+        title: Text('Data Transaksi'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            Image.network('https://via.placeholder.com/150'), // ganti dengan image asset jika perlu
-            SizedBox(height: 16),
-            buildDetail('Title', 'Beli Baju'),
-            buildDetail('Jenis', 'Pengeluaran'),
-            buildDetail('Tanggal', '27 Mei 2025'),
-            buildDetail('Jumlah', '70.000'),
-            buildDetail('Deskripsi', 'Beli baju di Tunjungan'),
-          ],
-        ),
+      body: dataList.isEmpty
+          ? Center(child: Text('Belum ada data'))
+          : ListView.builder(
+              itemCount: dataList.length,
+              itemBuilder: (context, index) {
+                final data = dataList[index];
+                return ListTile(
+                  title: Text(data['title'] ?? ''),
+                  subtitle: Text('${data['jumlah']} - ${data['tanggal']}'),
+                  trailing: Icon(Icons.arrow_forward_ios),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => DetailPage(data: data),
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () async {
+          final result = await Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => TambahDataPage()),
+          );
+          if (result != null) {
+            setState(() {
+              dataList.add(Map<String, String>.from(result));
+            });
+          }
+        },
       ),
-    );
-  }
-
-  Widget buildDetail(String label, String value) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text('$label :'),
-        Container(
-          width: double.infinity,
-          margin: EdgeInsets.symmetric(vertical: 6),
-          padding: EdgeInsets.all(12),
-          decoration: BoxDecoration(
-            color: Colors.teal[300],
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Text(value, style: TextStyle(color: Colors.white)),
-        ),
-      ],
     );
   }
 }
